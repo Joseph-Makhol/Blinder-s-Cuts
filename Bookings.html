@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bookings</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <style>
+    /* Additional custom styles */
+    .booking-form {
+      max-width: 500px;
+      margin: 0 auto; 
+      margin-top: 50px; 
+      padding: 20px;
+      background-color: #f6f6f6;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-family: Arial, sans-serif;
+    }
+  
+    .booking-form h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  
+    .booking-form label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+  
+    .booking-form input[type="text"],
+    .booking-form input[type="email"],
+    .booking-form input[type="tel"],
+    .booking-form select {
+      width: 95%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+  
+    .booking-form input[type="submit"] {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px; 
+      background-color: #333;
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  
+    .booking-form input[type="submit"]:hover {
+      background-color: #555;
+    }
+  
+    /* Header styles */
+    .header {
+      font-family: 'Times New Roman', Times, serif;
+      background-color: #000;
+      color: #fff;
+      padding: 70px;
+      text-align: center;
+    }
+  
+    .header h1 {
+      margin: 0 150;
+      font-size: 55px;
+      font-weight: bold;
+    }
+  
+    .header ul {
+      list-style-type: none;
+      margin-left: 260px;
+      padding: 0;
+      display: flex; /* Added */
+      justify-content: center; /* Added */
+    }
+  
+    .header ul li {
+      display: inline-block;
+      margin-right: 250px;
+      font-size: 30px;
+    }
+  
+    .header ul li a {
+      color: #ffffff;
+      padding-top: 20px;
+      text-decoration: none;
+    }
+  
+    .header ul li a:hover {
+      box-shadow: 0 0 10px #ffffff;
+    }
+  
+    .success-message {
+      display: none;
+      text-align: center;
+      padding: 20px;
+      background-color: #f7f7f7;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+  
+    .success-text {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+  
+    .booking-details {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+  
+    .booking-list {
+      list-style-type: disc;
+      margin-left: 20px;
+      padding-left: 20px;
+    }
+  
+    .booking-datetime {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+  
+    .receipt-info {
+      font-size: 16px;
+      margin-top: 20px;
+    }
+    .pic{
+      position: absolute;
+      height: 500px;
+      top: 450px;
+      left: 85px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Blinder's Cuts</h1>
+    <ul class="nav justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link" href="Home.html">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="Team.html">Team</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="Services.html">Services</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="Bookings.html">Bookings</a>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="booking-form">
+    <h2>Book an Appointment</h2>
+    <form id="appointment-form">
+      <div class="form-group">
+        <label for="first-name">First Name:</label>
+        <input type="text" class="form-control" id="first-name" name="first-name" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="last-name">Last Name:</label>
+        <input type="text" class="form-control" id="last-name" name="last-name" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="phone">Phone Number:</label>
+        <input type="tel" class="form-control" id="phone" name="phone" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="barber">Barber:</label>
+        <select class="form-control" id="barber" name="barber" required>
+          <option value="">Select Barber</option>
+          <option value="Thomas Shelby">Thomas Shelby</option>
+          <option value="Arthur Shelby">Arthur Shelby</option>
+          <option value="Curly Shelby">Curly Shelby</option>
+          <option value="Billy Kimber">Billy Kimber</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="service">Service:</label>
+        <select class="form-control" id="service" name="service" required>
+          <option value="">Select Service</option>
+          <option value="Haircut">Haircut - $20</option>
+          <option value="Beard Grooming">Beard Grooming - $20</option>
+          <option value="Straight Razor Shave">Straight Razor Shave - $15</option>
+          <option value="Kids/Seniors Haircut">Kids/Seniors Haircut - $10</option>
+          <option value="Colours and Treatment">Colours and Treatment - $55</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="date">Date and Time:</label>
+        <input type="datetime-local" class="form-control" id="date" name="date" required>
+      </div>
+      
+      <button type="submit" class="btn btn-primary">Book Appointment</button>
+    </form>
+    <div id="success-message" class="success-message">
+      <p class="success-text" id="success-message-text"></p>
+    </div>
+    <img src="razor.jpeg" alt="fil" class="pic">
+  </div>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script>
+    // Handle form submission
+    document.getElementById("appointment-form").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent form from submitting
+  
+      // Retrieve form data
+      var firstName = document.getElementById("first-name").value;
+      var lastName = document.getElementById("last-name").value;
+      var email = document.getElementById("email").value;
+      var phone = document.getElementById("phone").value;
+      var barber = document.getElementById("barber").value;
+      var service = document.getElementById("service").value;
+      var date = document.getElementById("date").value;
+  
+      // You can now process the form data (e.g., send it to a server or store in a database)
+      // Here, we'll simply log the data to the console
+      console.log("First Name:", firstName);
+      console.log("Last Name:", lastName);
+      console.log("Email:", email);
+      console.log("Phone:", phone);
+      console.log("Barber:", barber);
+      console.log("Service:", service);
+      console.log("Date and Time:", date);
+  
+      // Hide the form and show the success message
+      document.getElementById("appointment-form").style.display = "none";
+      document.getElementById("success-message").style.display = "block";
+  
+      // Update the success message with booking details
+      var successMessage = document.getElementById("success-message");
+      successMessage.innerHTML = "<p class='success-text'>Appointment booked successfully!</p>" +
+        "<p class='booking-details'>You have booked an appointment with " + barber + " for the following services:</p>" +
+        "<ul class='booking-list'>" +
+        "<li>" + service + "</li>" +
+        "</ul>" +
+        "<p class='booking-details'>Date and Time:</p>" +
+        "<p class='booking-datetime'>" + date + "</p>" +
+        "<p class='receipt-info'>A receipt will be sent to your email: " + email + "</p>";
+    });
+  </script>
+</body>
+</html>
